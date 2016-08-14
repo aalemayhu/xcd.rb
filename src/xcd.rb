@@ -5,20 +5,20 @@ def paths
   src = "#{home}/src"
   github = "#{src}/github.com"
   {
-      "me" => "#{github}/scanf",
-      "w" => "#{github}/profsys",
-      "d" => "#{home}/Dropbox/Downloads",
-      "a" => "#{github}/apple",
-      "c" => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
-      "t" => "/tmp/",
-      "k" => "#{src}/kernel.org"
+      :me => "#{github}/scanf",
+      :w => "#{github}/profsys",
+      :d => "#{home}/Dropbox/Downloads",
+      :a => "#{github}/apple",
+      :c => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
+      :t => "/tmp/",
+      :k => "#{src}/kernel.org"
     }
 end
 
 def navigateTo(dir)
-  puts "GOT: #{dir}"
-  `mkdir -p '#{paths[dir]}'`
-  Dir.chdir("#{paths[dir]}")
+  directory_path = "#{paths[dir.downcase.to_sym]}"
+  `mkdir -p '#{directory_path}'`
+  Dir.chdir("#{directory_path}")
   system("bash")
 end
 
