@@ -2,11 +2,12 @@
 
 def paths
     home = ENV['HOME']
-    src = "#{home}/src/github.com"
+    src = "#{home}/src/"
+    github = "#{src}/github.com"
     return {
-        "w" => "#{src}/profsys",
+        "w" => "#{github}/profsys",
         "d" => "#{home}/Dropbox/Downloads",
-        "a" => "#{src}/apple",
+        "a" => "#{github}/apple",
         "c" => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
         "t" =>  "/tmp/"
     }
