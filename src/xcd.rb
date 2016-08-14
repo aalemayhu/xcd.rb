@@ -11,7 +11,7 @@ def paths
       :a => "#{github}/apple",
       :c => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
       :t => '/tmp/',
-      :k => "#{src}/kernel.org"
+      :k => "#{src}/kernel.org",
       :s => "#{src}"
     }
 end
