@@ -1,12 +1,13 @@
 FILES=src/xcd.rb
 INSTALL_DIR=/usr/local/bin
+BINARY=xcd
 
 all:
 	src/xcd.rb
 
 install:
 	chmod +x $(FILES)
-	cp $(FILES) $(INSTALL_DIR)/
+	cp $(FILES) $(INSTALL_DIR)/$(BINARY)
 
 uninstall:
-	echo "Remove ${FILES} in $(INSTALL_DIR)"
+	echo "Remove ${BINARY} in $(INSTALL_DIR)"
