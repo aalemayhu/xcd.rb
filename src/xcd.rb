@@ -15,6 +15,7 @@ def paths
   end
 
   def navigateTo(dir)
+    `mkdir -p #{paths[dir]}`
     Dir.chdir("#{paths[dir]}")
     system("bash")
   end
