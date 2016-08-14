@@ -2,9 +2,10 @@
 
 def paths
     home = ENV['HOME']
-    src = "#{home}/src/"
+    src = "#{home}/src"
     github = "#{src}/github.com"
     return {
+        "me" => "#{github}/scanf",
         "w" => "#{github}/profsys",
         "d" => "#{home}/Dropbox/Downloads",
         "a" => "#{github}/apple",
@@ -15,7 +16,8 @@ def paths
   end
 
   def navigateTo(dir)
-    `mkdir -p #{paths[dir]}`
+    puts "GOT: #{dir}"
+    `mkdir -p '#{paths[dir]}'`
     Dir.chdir("#{paths[dir]}")
     system("bash")
   end
@@ -28,10 +30,9 @@ def paths
     end
   end
 
-ARGV.each do|a|
+  a = ARGV[0] || "me"
   if a.start_with?("help")
     usage()
   else
     navigateTo(a)
   end
-end
