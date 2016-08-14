@@ -12,6 +12,7 @@ def paths
       :c => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
       :t => '/tmp/',
       :k => "#{src}/kernel.org"
+      :s => "#{src}"
     }
 end
 
