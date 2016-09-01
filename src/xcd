@@ -1,0 +1,10 @@
+xcd() {
+  result=`/Users/tomas/Projects/cli/xcd.rb/src/xcd.rb $1`
+
+  if [[ $result =~ ^USAGE ]]; then
+    echo $result
+  else
+    mkdir -p $result
+    cd $result
+  fi
+}
