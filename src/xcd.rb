@@ -5,6 +5,7 @@ def paths
   src = "#{home}/src"
   github = "#{src}/github.com"
   {
+      :l => "#{github}/scanf/linux",
       :me => "#{github}/scanf",
       :w => "#{github}/profsys",
       :d => "#{home}/Dropbox/Downloads",
