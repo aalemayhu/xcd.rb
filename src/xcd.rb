@@ -1,40 +1,40 @@
-#!/usr/bin/ruby
+#!/usr/bin/env ruby
 
 def paths
-  home = ENV['HOME']
+  home = ENV["HOME"]
   src = "#{home}/src"
   github = "#{src}/github.com"
   {
-      :l => "#{github}/scanf/linux",
-      :me => "#{github}/scanf",
-      :w => "#{github}/profsys",
-      :d => "#{home}/Dropbox/Downloads",
-      :a => "#{github}/apple",
-      :c => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
-      :t => '/tmp/',
-      :k => "#{src}/kernel.org",
-      :s => "#{src}"
-    }
+    :c => "#{home}/Library/Mobile Documents/com~apple~CloudDocs",
+    :d => "#{home}/Downloads",
+    :i => "#{github}/imba",
+    :m => "#{github}/scanf",
+    :s => "#{github}/scrimba",
+    :sc => "#{src}"
+    :t => '/tmp/',
+  }
 end
 
-def navigateTo(dir)
-  directory_path = "#{paths[dir.downcase.to_sym]}"
-  `mkdir -p '#{directory_path}'`
-  Dir.chdir("#{directory_path}")
-  system('bash')
-end
+def navigate_to(dir)
+  path = paths[dir.downcase.to_sym]
 
-def usage
-  puts 'USAGE: xcd d'
-  puts "\nSupported options:"
-  paths.each_pair do |ykey, value|
-    puts "#{ykey} - #{value}"
+  if path
+    puts path
+  else
+    usage
   end
 end
 
-a = ARGV[0] || 'me'
-if a.start_with?('help')
-  usage
-else
-  navigateTo(a)
+def usage
+  puts "USAGE: xcd d"
+  puts
+  puts "Supported options:"
+
+  paths.each do |arg, path|
+    puts "#{arg} - #{path}"
+  end
 end
+
+arg = ARGV[0]
+
+navigate_to(arg)
